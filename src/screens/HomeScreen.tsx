@@ -4,21 +4,8 @@ import {FlatList} from 'react-native-gesture-handler';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {FlatListMenuItem} from '../components/FlatListMenuItem';
-import {MenuItem} from '../interfaces/interfaces';
+import {menuItems} from '../data/menuItems';
 import {styles} from '../styles/appStyles';
-
-const menuItems: MenuItem[] = [
-  {
-    name: 'Animation 101',
-    icon: 'widgets',
-    component: 'Animation101Screen',
-  },
-  {
-    name: 'Animation 102',
-    icon: 'collections',
-    component: 'Animation102Screen',
-  },
-];
 
 export const HomeScreen = () => {
   const {top} = useSafeAreaInsets();
