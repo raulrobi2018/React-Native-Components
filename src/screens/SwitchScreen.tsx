@@ -1,21 +1,34 @@
-import React, {useState} from 'react';
-import {View, Platform} from 'react-native';
-import {Switch} from 'react-native-gesture-handler';
+import React, { useState } from 'react';
+import {Text, View} from 'react-native';
+import { CustomSwitch } from '../components/CustomSwitch';
+import { Header } from '../components/Header';
 import {styles} from '../styles/switchStyles';
 
 export const SwitchScreen = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  
+
+  const [state, setState] = useState({isActive: true, isHungry: false, isHappy: true});
+
+const {isActive, isHungry, isHappy} = state;
+
+const onChange = (value: boolean, field: string) => {
+  setState({
+    ...state,
+    [field]: value
+  })
+}
 
   return (
     <View style={styles.container}>
-      <Switch
-        trackColor={{false: 'lightgray', true: 'gray'}}
-        thumbColor={Platform.OS === 'android' ? '#5856D6' : ''}
-        ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
-      />
+
+<Header title="Switches" />
+      <View style={styles.row}><Text style={styles.text}>isActive</Text>
+      
+<CustomSwitch isOn={isActive} onChange={(value) => onChange(value, 'isActive')}/>
+      </View>
+
+<Text style={styles.text}>{JSON.stringify(state, null, 5)}</Text>
+
     </View>
   );
 };

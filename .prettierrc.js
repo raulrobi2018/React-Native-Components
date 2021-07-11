@@ -5,4 +5,6 @@ module.exports = {
   trailingComma: 'all',
   arrowParens: 'avoid',
   endOfLine: 'auto',
+  'editor.formatOnSave': true,
+  
 };

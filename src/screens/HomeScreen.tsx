@@ -1,24 +1,13 @@
 import React from 'react';
-import {Text, View, Platform} from 'react-native';
+import { View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 import {FlatListMenuItem} from '../components/FlatListMenuItem';
+import { Header } from '../components/Header';
 import {menuItems} from '../data/menuItems';
 import {styles} from '../styles/appStyles';
 
 export const HomeScreen = () => {
-  const {top} = useSafeAreaInsets();
-
-  const renderListHeader = () => {
-    let topM = Platform.OS === 'ios' ? top + 20 : top + 5;
-
-    return (
-      <View style={{marginTop: topM}}>
-        <Text style={styles.title}>Opciones de menú</Text>
-      </View>
-    );
-  };
 
   const itemSeparator = () => {
     return <View style={styles.itemSeparator} />;
@@ -33,7 +22,7 @@ export const HomeScreen = () => {
         renderItem={({item}) => <FlatListMenuItem menuItem={item} />}
         //El 'keyExtractor tiene que ser único y debe ser un string'
         keyExtractor={item => item.name}
-        ListHeaderComponent={() => renderListHeader()}
+        ListHeaderComponent={() => <Header title="Opciones de menú" />}
         ItemSeparatorComponent={() => itemSeparator()}
       />
     </View>
