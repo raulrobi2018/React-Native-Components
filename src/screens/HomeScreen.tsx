@@ -1,14 +1,13 @@
 import React from 'react';
-import { View} from 'react-native';
+import {View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 
 import {FlatListMenuItem} from '../components/FlatListMenuItem';
-import { Header } from '../components/Header';
+import {Header} from '../components/Header';
 import {menuItems} from '../data/menuItems';
 import {styles} from '../styles/appStyles';
 
 export const HomeScreen = () => {
-
   const itemSeparator = () => {
     return <View style={styles.itemSeparator} />;
   };

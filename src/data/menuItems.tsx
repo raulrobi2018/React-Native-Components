@@ -12,8 +12,18 @@ export const menuItems: MenuItem[] = [
     component: 'Animation102Screen',
   },
   {
-    name: 'Switch',
+    name: 'Switches',
     icon: 'toggle-on',
     component: 'SwitchScreen',
+  },
+  {
+    name: 'Alerts',
+    icon: 'notifications',
+    component: 'AlertScreen',
+  },
+  {
+    name: 'Text inputs',
+    icon: 'edit',
+    component: 'TextInputScreen',
   },
 ];

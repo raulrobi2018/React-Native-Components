@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 
+export const PRIMARY_COLOR = '#5856D6';
+
 export const styles = StyleSheet.create({
   title: {
     fontSize: 30,
