@@ -6,11 +6,11 @@ export const useAnimation = () => {
   const opacity = useRef(new Animated.Value(0.4)).current;
   const position = useRef(new Animated.Value(0)).current;
 
-  const fadeIn = () => {
+  const fadeIn = (duration: number = 300) => {
     Animated.timing(opacity, {
       // Al valor que quiero que llegue la opacidad
       toValue: 1,
-      duration: 300,
+      duration,
       useNativeDriver: true,
     }).start();
   };
@@ -24,10 +24,7 @@ export const useAnimation = () => {
     }).start(() => console.log('La animación terminó'));
   };
 
-  const startPosition = (
-    initPosition: number,
-    duration: number = 300,
-  ) => {
+  const startPosition = (initPosition: number, duration: number = 300) => {
     position.setValue(initPosition);
 
     Animated.timing(position, {

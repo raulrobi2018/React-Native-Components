@@ -26,4 +26,29 @@ export const menuItems: MenuItem[] = [
     icon: 'edit',
     component: 'TextInputScreen',
   },
+  {
+    name: 'Pull to refresh',
+    icon: 'refresh',
+    component: 'PullToRefreshScreen',
+  },
+  {
+    name: 'Section list',
+    icon: 'list',
+    component: 'SectionListScreen',
+  },
+  {
+    name: 'Modal',
+    icon: 'call-to-action',
+    component: 'ModalScreen',
+  },
+  {
+    name: 'Infinite Scroll',
+    icon: 'menu-open',
+    component: 'InfiniteScrollScreen',
+  },
+  {
+    name: 'Slides',
+    icon: 'linear-scale',
+    component: 'SlidesScreen',
+  },
 ];

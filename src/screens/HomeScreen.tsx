@@ -4,14 +4,11 @@ import {FlatList} from 'react-native-gesture-handler';
 
 import {FlatListMenuItem} from '../components/FlatListMenuItem';
 import {Header} from '../components/Header';
+import {ItemSeparator} from '../components/ItemSeparator';
 import {menuItems} from '../data/menuItems';
 import {styles} from '../styles/appStyles';
 
 export const HomeScreen = () => {
-  const itemSeparator = () => {
-    return <View style={styles.itemSeparator} />;
-  };
-
   return (
     <View style={styles.flatListContainer}>
       <FlatList
@@ -22,7 +19,7 @@ export const HomeScreen = () => {
         //El 'keyExtractor tiene que ser único y debe ser un string'
         keyExtractor={item => item.name}
         ListHeaderComponent={() => <Header title="Opciones de menú" />}
-        ItemSeparatorComponent={() => itemSeparator()}
+        ItemSeparatorComponent={() => <ItemSeparator />}
       />
     </View>
   );

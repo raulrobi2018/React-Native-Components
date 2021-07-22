@@ -17,7 +17,7 @@ import {useForm} from '../hooks/useForm';
 import {CustomSwitch} from '../components/CustomSwitch';
 
 export const TextInputScreen = () => {
-  const {form, onChange} = useForm({
+  const {form, onChange, isSubscribed} = useForm({
     name: '',
     email: '',
     phone: '',
@@ -72,12 +72,10 @@ export const TextInputScreen = () => {
 
             <View style={styles.row}>
               <Text>Suscribirme</Text>
-              {/* <CustomSwitch
+              <CustomSwitch
                 isOn={isSubscribed}
-                onChange={({isSubscribed}) =>
-                  onChange(isSubscribed, 'isSubscribed')
-                }
-              /> */}
+                onChange={value => onChange(value, 'isSubscribed')}
+              />
             </View>
             <View>
               <Text>{JSON.stringify(form, null, 3)}</Text>
