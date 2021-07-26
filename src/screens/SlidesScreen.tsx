@@ -12,11 +12,20 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {items, Slide} from '../data/slideItems';
 import {styles} from '../styles/slidesStyles';
+import {useAnimation} from '../hooks/useAnimation';
+import {useRef} from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('window');
 
-export const SlidesScreen = () => {
+interface Props extends StackScreenProps<any, any> {}
+
+export const SlidesScreen = ({navigation}: Props) => {
+  const {fadeIn, fadeOut} = useAnimation();
+
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const isVisible = useRef(false);
 
   const renderItem = (item: Slide) => {
     return (
@@ -39,7 +48,16 @@ export const SlidesScreen = () => {
         sliderWidth={screenWidth}
         itemWidth={screenWidth}
         layout="default"
-        onSnapToItem={index => setActiveIndex(index)}
+        onSnapToItem={index => {
+          setActiveIndex(index);
+          if (index === items.length - 1) {
+            isVisible.current = true;
+            fadeIn(600);
+          } else {
+            isVisible.current = false;
+            fadeOut();
+          }
+        }}
       />
 
       <View style={styles.paginationContainer}>
@@ -49,10 +67,17 @@ export const SlidesScreen = () => {
           dotStyle={styles.pagination}
         />
 
-        <TouchableOpacity style={styles.menuButton}>
-          <Text>Menu</Text>
-          <Icon name="double-arrow" />
-        </TouchableOpacity>
+        {isVisible.current && (
+          <TouchableOpacity
+            style={styles.menuButton}
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate('HomeScreen');
+            }}>
+            <Text style={styles.textMenuButton}>Menu</Text>
+            <Icon name="arrow-forward-ios" style={styles.iconMenuButton} />
+          </TouchableOpacity>
+        )}
       </View>
     </SafeAreaView>
   );

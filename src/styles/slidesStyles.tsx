@@ -31,7 +31,10 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   paginationContainer: {
-    backgroundColor: 'gray',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    alignItems: 'center',
   },
   pagination: {
     width: 10,
@@ -39,9 +42,20 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: '#5856D6',
   },
-  textMenuButton: {},
+  textMenuButton: {
+    fontSize: 25,
+    color: 'white',
+  },
+  iconMenuButton: {
+    fontSize: 25,
+    color: 'white',
+    marginLeft: 15,
+    marginTop: 5,
+  },
   menuButton: {
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: '#5856D6',
     width: 150,
     height: 50,

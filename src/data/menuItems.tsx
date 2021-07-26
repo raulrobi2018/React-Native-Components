@@ -51,4 +51,9 @@ export const menuItems: MenuItem[] = [
     icon: 'linear-scale',
     component: 'SlidesScreen',
   },
+  {
+    name: 'Themes',
+    icon: 'palette',
+    component: 'ChangeThemeScreen',
+  },
 ];
