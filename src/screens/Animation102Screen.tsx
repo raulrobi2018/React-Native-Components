@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useRef} from 'react';
 import {Animated, PanResponder, View} from 'react-native';
-import {styles} from '../styles/animation102Styles';
+import {Header} from '../components/Header';
+import {ThemeContext} from '../context/theme/ThemeContext';
+import {styles as animation102Styles} from '../styles/animation102Styles';
 
 export const Animation102Screen = () => {
   const pan = useRef(new Animated.ValueXY()).current;
+
+  const {theme} = useContext(ThemeContext);
+
+  const styles = animation102Styles(theme);
 
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
@@ -29,9 +35,11 @@ export const Animation102Screen = () => {
 
   return (
     <View style={styles.container}>
+      <Header title="Draggable" />
+
       <Animated.View
         {...panResponder.panHandlers}
-        style={[pan.getLayout(), styles.purpleBox]}
+        style={[pan.getLayout(), styles.box]}
       />
     </View>
   );

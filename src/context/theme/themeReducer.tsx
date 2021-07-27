@@ -9,6 +9,8 @@ export interface ThemeState extends Theme {
   currentTheme: 'light' | 'dark';
   dividerColor: string;
   buttonText: string;
+  switchOn: string;
+  switchOff: string;
 }
 
 //Aquí lightTheme será de tipo ThemeState
@@ -18,6 +20,8 @@ export const lightTheme: ThemeState = {
   //   Se utilizará para el stack navigator
   dark: false,
   buttonText: '#DDFFBC',
+  switchOn: '#999999',
+  switchOff: '#d9d9d9',
   colors: {
     primary: '#52734D',
     background: '#FEFFDE',
@@ -35,6 +39,8 @@ export const darkTheme: ThemeState = {
   //   Se utilizará para el stack navigator
   dark: true,
   buttonText: '#EDEDF4',
+  switchOn: '#999999',
+  switchOff: '#d9d9d9',
   colors: {
     primary: 'red',
     background: 'black',
