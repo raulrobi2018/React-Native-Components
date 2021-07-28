@@ -1,14 +1,13 @@
 import React from 'react';
-import { useContext } from 'react';
+import {useContext} from 'react';
 import {Alert, Button, View} from 'react-native';
 import prompt from 'react-native-prompt-android';
 import {Header} from '../components/Header';
-import { ThemeContext } from '../context/theme/ThemeContext';
+import {ThemeContext} from '../context/theme/ThemeContext';
 import {styles} from '../styles/alertStyles';
 
 export const AlertScreen = () => {
-
-const {theme} = useContext(ThemeContext)
+  const {theme} = useContext(ThemeContext);
 
   const createTwoButtonAlert = () =>
     Alert.alert('Alert con 2 botones', 'Texto del alerta', [
@@ -90,7 +89,11 @@ const {theme} = useContext(ThemeContext)
     <View style={styles.container}>
       <Header title="Alerts" />
       <View style={styles.row}>
-        <Button title={'Alerta con 2 botones'} onPress={createTwoButtonAlert} color={theme.colors.primary}/>
+        <Button
+          title={'Alerta con 2 botones'}
+          onPress={createTwoButtonAlert}
+          color={theme.colors.primary}
+        />
       </View>
       <View style={styles.row}>
         <Button
@@ -100,13 +103,25 @@ const {theme} = useContext(ThemeContext)
         />
       </View>
       <View style={styles.row}>
-        <Button title={'Alerta cancelable'} onPress={createCancelableAlert} color={theme.colors.primary} />
+        <Button
+          title={'Alerta cancelable'}
+          onPress={createCancelableAlert}
+          color={theme.colors.primary}
+        />
       </View>
       <View style={styles.row}>
-        <Button title={'Prompt (solo IOS)'} onPress={createPrompt} color={theme.colors.primary}/>
+        <Button
+          title={'Prompt (solo IOS)'}
+          onPress={createPrompt}
+          color={theme.colors.primary}
+        />
       </View>
       <View style={styles.row}>
-        <Button title={'Prompt for Android'} onPress={createPromptForAndroid} color={theme.colors.primary}/>
+        <Button
+          title={'Prompt for Android'}
+          onPress={createPromptForAndroid}
+          color={theme.colors.primary}
+        />
       </View>
     </View>
   );

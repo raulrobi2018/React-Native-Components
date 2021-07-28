@@ -12,9 +12,11 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native-gesture-handler';
 import {Header} from '../components/Header';
-import {styles} from '../styles/textInputStyles';
+import {styles as textInputStyles} from '../styles/textInputStyles';
 import {useForm} from '../hooks/useForm';
 import {CustomSwitch} from '../components/CustomSwitch';
+import {useContext} from 'react';
+import {ThemeContext} from '../context/theme/ThemeContext';
 
 export const TextInputScreen = () => {
   const {form, onChange, isSubscribed} = useForm({
@@ -23,6 +25,10 @@ export const TextInputScreen = () => {
     phone: '',
     isSubscribed: false,
   });
+
+  const {theme} = useContext(ThemeContext);
+
+  const styles = textInputStyles(theme);
 
   return (
     <KeyboardAvoidingView

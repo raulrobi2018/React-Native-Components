@@ -27,7 +27,7 @@ export const lightTheme: ThemeState = {
     background: '#FEFFDE',
     card: '#FEFFDE',
     text: '#52734D',
-    border: 'black',
+    border: '#91C788',
     notification: 'yellow',
   },
 };
