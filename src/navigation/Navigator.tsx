@@ -15,6 +15,7 @@ import {ChangeThemeScreen} from '../screens/ChangeThemeScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {useContext} from 'react';
 import {ThemeContext} from '../context/theme/ThemeContext';
+import { View } from 'react-native';
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,9 @@ export const Navigator = () => {
   const {theme} = useContext(ThemeContext);
 
   return (
+
+    <View style={{backgroundColor: theme.colors.background, flex: 1}}>
+      
     <NavigationContainer theme={theme}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
@@ -50,5 +54,6 @@ export const Navigator = () => {
         <Stack.Screen name="ChangeThemeScreen" component={ChangeThemeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    </View>
   );
 };
