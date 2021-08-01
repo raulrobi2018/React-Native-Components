@@ -1,7 +1,8 @@
 import {Theme} from '@react-navigation/native';
 import {StyleSheet} from 'react-native';
+import {ThemeState} from '../context/theme/themeReducer';
 
-export const styles = (theme: Theme) =>
+export const styles = (theme: ThemeState) =>
   StyleSheet.create({
     title: {
       fontSize: 30,
@@ -15,7 +16,7 @@ export const styles = (theme: Theme) =>
     },
     itemSeparator: {
       borderBottomWidth: 1,
-      borderBottomColor: 'gray',
+      borderBottomColor: theme.dividerColor,
       marginVertical: 5,
       opacity: 0.3,
     },

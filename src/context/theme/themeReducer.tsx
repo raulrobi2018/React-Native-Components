@@ -35,18 +35,18 @@ export const lightTheme: ThemeState = {
 //Aquí darkTheme será de tipo ThemeState
 export const darkTheme: ThemeState = {
   currentTheme: 'dark',
-  dividerColor: 'rgba(0,0,0,0.7)',
+  dividerColor: '#3E432E',
   //   Se utilizará para el stack navigator
   dark: true,
-  buttonText: '#EDEDF4',
+  buttonText: '#3E432E',
   switchOn: '#999999',
   switchOff: '#d9d9d9',
   colors: {
-    primary: 'red',
-    background: 'black',
+    primary: '#A7D129',
+    background: '#000000',
     card: 'gray',
-    text: 'orange',
-    border: 'black',
+    text: '#A7D129',
+    border: '#A7D129',
     notification: 'yellow',
   },
 };

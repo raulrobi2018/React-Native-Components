@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from 'react';
 import {
   SafeAreaView,
@@ -11,10 +11,11 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {items, Slide} from '../data/slideItems';
-import {styles} from '../styles/slidesStyles';
+import {styles as slidesStyles} from '../styles/slidesStyles';
 import {useAnimation} from '../hooks/useAnimation';
 import {useRef} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
+import {ThemeContext} from '../context/theme/ThemeContext';
 
 const {height: screenHeight, width: screenWidth} = Dimensions.get('window');
 
@@ -36,6 +37,9 @@ export const SlidesScreen = ({navigation}: Props) => {
       </View>
     );
   };
+
+  const {theme} = useContext(ThemeContext);
+  const styles = slidesStyles(theme);
 
   return (
     <SafeAreaView style={styles.container}>

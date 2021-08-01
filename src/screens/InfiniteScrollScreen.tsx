@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from 'react';
 import {ActivityIndicator, Image, Text, View} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import {FadeInImage} from '../components/FadeInImage';
 import {Header} from '../components/Header';
-import {styles} from '../styles/infiniteScrollStyles';
+import {ThemeContext} from '../context/theme/ThemeContext';
+import {styles as infiniteStyles} from '../styles/infiniteScrollStyles';
 
 export const InfiniteScrollScreen = () => {
   const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
@@ -29,6 +30,9 @@ export const InfiniteScrollScreen = () => {
     }
     setNumbers([...numbers, ...array]);
   };
+
+  const {theme} = useContext(ThemeContext);
+  const styles = infiniteStyles(theme);
 
   return (
     <View style={styles.container}>

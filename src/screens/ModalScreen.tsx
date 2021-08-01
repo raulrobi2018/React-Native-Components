@@ -1,10 +1,14 @@
 import React, {useState} from 'react';
+import {useContext} from 'react';
 import {Button, Modal, Pressable, Text, View} from 'react-native';
 import {Header} from '../components/Header';
+import {ThemeContext} from '../context/theme/ThemeContext';
 import {styles} from '../styles/modalStyles';
 
 export const ModalScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const {theme} = useContext(ThemeContext);
 
   return (
     <View style={styles.container}>
@@ -15,6 +19,7 @@ export const ModalScreen = () => {
         onPress={() => {
           setModalVisible(true);
         }}
+        color={theme.colors.primary}
       />
 
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
@@ -29,6 +34,7 @@ export const ModalScreen = () => {
               onPress={() => {
                 setModalVisible(false);
               }}
+              color={theme.colors.primary}
             />
           </View>
         </View>

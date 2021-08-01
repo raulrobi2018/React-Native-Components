@@ -1,8 +1,10 @@
 import React from 'react';
+import {useContext} from 'react';
 import {useState} from 'react';
 import {View, ScrollView, RefreshControl, Text} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Header} from '../components/Header';
+import {ThemeContext} from '../context/theme/ThemeContext';
 import {styles} from '../styles/pullToRefreshSyles';
 
 export const PullToRefreshScreen = () => {
@@ -20,6 +22,8 @@ export const PullToRefreshScreen = () => {
     }, 1500);
   };
 
+  const {theme} = useContext(ThemeContext);
+
   return (
     <ScrollView
       // Le agrega un top porque en IOS queda detrás del knoch
@@ -29,11 +33,11 @@ export const PullToRefreshScreen = () => {
           refreshing={refreshing}
           onRefresh={onRefresh}
           progressViewOffset={10}
-          colors={['red', 'green', 'blue']}
+          colors={[theme.buttonText]}
           //Solo para Android
           progressBackgroundColor="green"
           //Solo para IOS
-          style={{backgroundColor: 'blue'}}
+          style={{backgroundColor: theme.colors.primary}}
           title="Refreshing"
           titleColor="black"
         />

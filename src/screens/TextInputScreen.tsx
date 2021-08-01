@@ -51,10 +51,10 @@ export const TextInputScreen = () => {
               />
             </View>
             <View>
-              <Text>{JSON.stringify(form, null, 3)}</Text>
+              <Text style={styles.text}>{JSON.stringify(form, null, 3)}</Text>
             </View>
             <View>
-              <Text>{JSON.stringify(form, null, 3)}</Text>
+              <Text style={styles.text}>{JSON.stringify(form, null, 3)}</Text>
             </View>
             <View style={styles.row}>
               <TextInput
